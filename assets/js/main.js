@@ -44,6 +44,96 @@ const propiedades_alquiler = [
     smoke: false,
     pets: false,
   },
+  {
+    nombre: "Casa en alquiler",
+    src: "https://via.placeholder.com/300x200?text=Casa+1",
+    descripcion: "Casa espaciosa en una zona tranquila con jardín grande.",
+    ubicacion: "Calle El Mirador, San Salvador",
+    habitaciones: 3,
+    banos: 2,
+    costo: 500,
+    smoke: false,
+    pets: true,
+  },
+  {
+    nombre: "Apartamento en alquiler",
+    src: "https://via.placeholder.com/300x200?text=Apartamento+1",
+    descripcion: "Apartamento moderno cerca del centro comercial Metrocentro.",
+    ubicacion: "Avenida Roosevelt, San Salvador",
+    habitaciones: 2,
+    banos: 1,
+    costo: 300,
+    smoke: false,
+    pets: false,
+  },
+  {
+    nombre: "Casa en alquiler",
+    src: "https://via.placeholder.com/300x200?text=Casa+2",
+    descripcion:
+      "Amplia casa familiar con piscina y estacionamiento para 2 autos.",
+    ubicacion: "Colonia Escalón, San Salvador",
+    habitaciones: 4,
+    banos: 3,
+    costo: 800,
+    smoke: false,
+    pets: true,
+  },
+  {
+    nombre: "Apartamento en alquiler",
+    src: "https://via.placeholder.com/300x200?text=Apartamento+2",
+    descripcion: "Apartamento amueblado en zona céntrica con seguridad 24/7.",
+    ubicacion: "Boulevard Los Próceres, San Salvador",
+    habitaciones: 3,
+    banos: 2,
+    costo: 400,
+    smoke: false,
+    pets: false,
+  },
+  {
+    nombre: "Casa en alquiler",
+    src: "https://via.placeholder.com/300x200?text=Casa+1",
+    descripcion: "Casa espaciosa en una zona tranquila con jardín grande.",
+    ubicacion: "Calle El Mirador, San Salvador",
+    habitaciones: 3,
+    banos: 2,
+    costo: 500,
+    smoke: false,
+    pets: true,
+  },
+  {
+    nombre: "Apartamento en alquiler",
+    src: "https://via.placeholder.com/300x200?text=Apartamento+1",
+    descripcion: "Apartamento moderno cerca del centro comercial Metrocentro.",
+    ubicacion: "Avenida Roosevelt, San Salvador",
+    habitaciones: 2,
+    banos: 1,
+    costo: 300,
+    smoke: false,
+    pets: false,
+  },
+  {
+    nombre: "Casa en alquiler",
+    src: "https://via.placeholder.com/300x200?text=Casa+2",
+    descripcion:
+      "Amplia casa familiar con piscina y estacionamiento para 2 autos.",
+    ubicacion: "Colonia Escalón, San Salvador",
+    habitaciones: 4,
+    banos: 3,
+    costo: 800,
+    smoke: false,
+    pets: true,
+  },
+  {
+    nombre: "Apartamento en alquiler",
+    src: "https://via.placeholder.com/300x200?text=Apartamento+2",
+    descripcion: "Apartamento amueblado en zona céntrica con seguridad 24/7.",
+    ubicacion: "Boulevard Los Próceres, San Salvador",
+    habitaciones: 3,
+    banos: 2,
+    costo: 400,
+    smoke: false,
+    pets: false,
+  },
 ];
 
 const propiedades_venta = [
@@ -93,18 +183,44 @@ const propiedades_venta = [
     smoke: false,
     pets: false,
   },
+  {
+    nombre: "Casa en venta",
+    src: "https://via.placeholder.com/300x200?text=Casa+4",
+    descripcion:
+      "Casa en zona exclusiva con portón eléctrico y acabados de lujo.",
+    ubicacion: "Residencial El Encanto, Santa Tecla",
+    habitaciones: 3,
+    banos: 2,
+    costo: 80000,
+    smoke: false,
+    pets: true,
+  },
+  {
+    nombre: "Apartamento en venta",
+    src: "https://via.placeholder.com/300x200?text=Apartamento+4",
+    descripcion:
+      "Apartamento compacto ideal para estudiantes o parejas jóvenes.",
+    ubicacion: "Colonia Médica, San Salvador",
+    habitaciones: 1,
+    banos: 1,
+    costo: 40000,
+    smoke: false,
+    pets: false,
+  },
 ];
 
 let html = "";
-recorrer_array = (arreglo, long) => {
+recorrer_array = (arreglo, cantidad) => {
   html = "";
-  for (let i = 0; i < long; i++) {
+  const limite = cantidad > 0 ? 3 : arreglo.length;
+  console.log(`limite ${limite}`);
+  for (let i = 0; i < limite; i++) {
     html_inject(arreglo[i]);
   }
 };
 
-let venta = document.getElementById("propiedades_venta");
-let alquiler = document.getElementById("propiedades_alquiler");
+// let venta = document.getElementById("propiedades_venta");
+// let alquiler = document.getElementById("propiedades_alquiler");
 
 html_inject = (propiedades) => {
   html += `
@@ -149,7 +265,7 @@ html_inject = (propiedades) => {
 
   `;
 };
-recorrer_array(propiedades_venta, 3);
-venta.innerHTML = html;
-recorrer_array(propiedades_alquiler, 3);
-alquiler.innerHTML = html;
+// recorrer_array(propiedades_venta, 3);
+// venta.innerHTML = html;
+// recorrer_array(propiedades_alquiler, 3);
+// alquiler.innerHTML = html;
