@@ -210,7 +210,7 @@ const propiedades_venta = [
 ];
 
 let html = "";
-recorrer_array = (arreglo, cantidad) => {
+const recorrer_array = (arreglo, cantidad) => {
   html = "";
   const limite = cantidad > 0 ? 3 : arreglo.length;
   for (let i = 0; i < limite; i++) {
@@ -218,7 +218,7 @@ recorrer_array = (arreglo, cantidad) => {
   }
 };
 
-html_inject = (propiedades) => {
+const html_inject = (propiedades) => {
   html += `
         <div class="col-md-4 mb-4">
         <div class="card">
