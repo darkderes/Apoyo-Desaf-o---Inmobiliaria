@@ -1,85 +1,155 @@
 const propiedades_alquiler = [
   {
     nombre: "Casa en alquiler",
-    src: "assets/img/casa1.jpg",
-    descripcion: "Casa en alquiler en zona residencial",
-    ubicacion: "San Salvador",
+    src: "https://via.placeholder.com/300x200?text=Casa+1",
+    descripcion: "Casa espaciosa en una zona tranquila con jardín grande.",
+    ubicacion: "Calle El Mirador, San Salvador",
     habitaciones: 3,
+    banos: 2,
     costo: 500,
     smoke: false,
     pets: true,
   },
   {
     nombre: "Apartamento en alquiler",
-    src: "assets/img/apartamento1.jpg",
-    descripcion: "Apartamento en alquiler en zona céntrica",
-    ubicacion: "San Salvador",
+    src: "https://via.placeholder.com/300x200?text=Apartamento+1",
+    descripcion: "Apartamento moderno cerca del centro comercial Metrocentro.",
+    ubicacion: "Avenida Roosevelt, San Salvador",
     habitaciones: 2,
+    banos: 1,
     costo: 300,
     smoke: false,
-    pets: true,
+    pets: false,
   },
   {
     nombre: "Casa en alquiler",
-    src: "assets/img/casa2.jpg",
-    descripcion: "Casa en alquiler en zona residencial",
-    ubicacion: "Santa Tecla",
+    src: "https://via.placeholder.com/300x200?text=Casa+2",
+    descripcion:
+      "Amplia casa familiar con piscina y estacionamiento para 2 autos.",
+    ubicacion: "Colonia Escalón, San Salvador",
     habitaciones: 4,
+    banos: 3,
     costo: 800,
     smoke: false,
     pets: true,
   },
   {
     nombre: "Apartamento en alquiler",
-    src: "assets/img/apartamento2.jpg",
-    descripcion: "Apartamento en alquiler en zona céntrica",
-    ubicacion: "San Salvador",
+    src: "https://via.placeholder.com/300x200?text=Apartamento+2",
+    descripcion: "Apartamento amueblado en zona céntrica con seguridad 24/7.",
+    ubicacion: "Boulevard Los Próceres, San Salvador",
     habitaciones: 3,
+    banos: 2,
     costo: 400,
     smoke: false,
-    pets: true,
+    pets: false,
   },
 ];
 
 const propiedades_venta = [
   {
     nombre: "Casa en venta",
-    src: "assets/img/casa3.jpg",
-    descripcion: "Casa en venta en zona residencial",
-    ubicacion: "Santa Tecla",
+    src: "https://via.placeholder.com/300x200?text=Casa+3",
+    descripcion: "Residencia de lujo con acabados modernos y amplio jardín.",
+    ubicacion: "Urbanización Las Piletas, Santa Tecla",
     habitaciones: 4,
+    banos: 3,
     costo: 100000,
     smoke: false,
     pets: true,
   },
   {
     nombre: "Apartamento en venta",
-    src: "assets/img/apartamento3.jpg",
-    descripcion: "Apartamento en venta en zona céntrica",
-    ubicacion: "San Salvador",
+    src: "https://via.placeholder.com/300x200?text=Apartamento+3",
+    descripcion: "Apartamento acogedor con balcón y vista panorámica.",
+    ubicacion: "Colonia San Benito, San Salvador",
     habitaciones: 2,
+    banos: 1,
     costo: 60000,
-    smoke: false,
+    smoke: true,
     pets: true,
   },
   {
     nombre: "Casa en venta",
-    src: "assets/img/casa4.jpg",
-    descripcion: "Casa en venta en zona residencial",
-    ubicacion: "Santa Tecla",
+    src: "https://via.placeholder.com/300x200?text=Casa+4",
+    descripcion:
+      "Casa en zona exclusiva con portón eléctrico y acabados de lujo.",
+    ubicacion: "Residencial El Encanto, Santa Tecla",
     habitaciones: 3,
+    banos: 2,
     costo: 80000,
     smoke: false,
     pets: true,
   },
   {
     nombre: "Apartamento en venta",
-    src: "assets/img/apartamento4.jpg",
-    descripcion: "Apartamento en venta en zona céntrica",
-    ubicacion: "San Salvador",
+    src: "https://via.placeholder.com/300x200?text=Apartamento+4",
+    descripcion:
+      "Apartamento compacto ideal para estudiantes o parejas jóvenes.",
+    ubicacion: "Colonia Médica, San Salvador",
     habitaciones: 1,
+    banos: 1,
     costo: 40000,
     smoke: false,
-    pets: true,
+    pets: false,
   },
 ];
+
+let html = "";
+recorrer_array = (arreglo, long) => {
+  html = "";
+  for (let i = 0; i < long; i++) {
+    html_inject(arreglo[i]);
+  }
+};
+
+let venta = document.getElementById("propiedades_venta");
+let alquiler = document.getElementById("propiedades_alquiler");
+
+html_inject = (propiedades) => {
+  html += `
+        <div class="col-md-4 mb-4">
+        <div class="card">
+              <img
+                src=${propiedades.src}
+                class="card-img-top"
+                alt="Imagen del departamento"
+              />
+              <div class="card-body">
+                <h5 class="card-title">
+                  ${propiedades.nombre}
+                </h5>
+                <p class="card-text">
+                 ${propiedades.descripcion}
+                </p>
+                <p>
+                  <i class="fas fa-map-marker-alt"></i> ${propiedades.ubicacion}
+                </p>
+                <p>
+                  <i class="fas fa-bed"></i> ${
+                    propiedades.habitaciones
+                  } Habitaciones |
+                  <i class="fas fa-bath"></i> ${propiedades.banos} Baños
+                </p>
+                <p><i class="fas fa-dollar-sign"></i> ${propiedades.costo}</p>
+                 ${
+                   propiedades.smoke
+                     ? `<p class="text-success"><i class="fas fa-smoking"></i> Permitido fumar</p>`
+                     : `<p class="text-danger"><i class="fas fa-smoking-ban"></i> No se permite fumar</p>`
+                 }
+            ${
+              propiedades.pets
+                ? `<p class="text-success"><i class="fas fa-paw"></i> Mascotas permitidas</p>`
+                : `<p class="text-danger"><i class="fa-solid fa-ban"></i> No se permiten mascotas</p>`
+            }
+           
+              </div>
+            </div>
+          </div>
+
+  `;
+};
+recorrer_array(propiedades_venta, 3);
+venta.innerHTML = html;
+recorrer_array(propiedades_alquiler, 3);
+alquiler.innerHTML = html;
