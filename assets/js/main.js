@@ -213,14 +213,10 @@ let html = "";
 recorrer_array = (arreglo, cantidad) => {
   html = "";
   const limite = cantidad > 0 ? 3 : arreglo.length;
-  console.log(`limite ${limite}`);
   for (let i = 0; i < limite; i++) {
     html_inject(arreglo[i]);
   }
 };
-
-// let venta = document.getElementById("propiedades_venta");
-// let alquiler = document.getElementById("propiedades_alquiler");
 
 html_inject = (propiedades) => {
   html += `
@@ -265,7 +261,3 @@ html_inject = (propiedades) => {
 
   `;
 };
-// recorrer_array(propiedades_venta, 3);
-// venta.innerHTML = html;
-// recorrer_array(propiedades_alquiler, 3);
-// alquiler.innerHTML = html;
